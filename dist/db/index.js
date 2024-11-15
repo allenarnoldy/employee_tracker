@@ -40,7 +40,15 @@ export default class DB {
     }
     //add an employee
     addEmployee(first_name, last_name, role_id, manager_id) {
-        return this.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) values ($1, $2, $3, $4)`, [first_name, last_name, role_id, manager_id]);
+        let newEmployee;
+        console.log(manager_id);
+        if (manager_id == null || String(manager_id) === '') {
+            newEmployee = this.query(`INSERT INTO employee (first_name, last_name, role_id) VALUES ($1, $2, $3)`, [first_name, last_name, role_id]);
+        }
+        else {
+            newEmployee = this.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)`, [first_name, last_name, role_id, manager_id]);
+        }
+        return newEmployee;
     }
     //update an employee role
     updateEmployeeRole(employee_id, role_id) {
