@@ -34,7 +34,7 @@ The code will have a schema.sql and seeds.sql. In order to get the tables you wi
 To use the employee_tracker, run the following command:
 
     `npm run build`
-Then you will rin the following command:
+Then you will run the following command:
 
     `node dist/index.js`
 You can also check out a video of the generator being used here:
